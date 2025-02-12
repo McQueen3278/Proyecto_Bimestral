@@ -23,12 +23,12 @@ const createAdminUser = async () => {
 
    
             await admin.save();
-            console.log("Admin user created successfully.");
+            console.log("Admin creado correcaamente.");
         } else {
-            console.log("Admin user already exists.");
+            console.log("Ya existe un administrador.");
         }
     } catch (error) {
-        console.error("Error creating admin user:", error);
+        console.error("Error al crear usuario", error);
     }
 };
 
