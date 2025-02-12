@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const clientSchema = new Schema({
+const userSchema = new Schema({
     name:{
         type: String,
         required: true,
@@ -40,7 +40,8 @@ const clientSchema = new Schema({
     role:{
         type: String,
         required: true,
-        enum: ["CLIENT_ROLE"]
+        enum: ["ADMIN_ROLE, CLIENT_ROLE"],
+        default: "CLIENT_ROLE"
     },
     status:{
         type: Boolean,
@@ -52,11 +53,11 @@ const clientSchema = new Schema({
     timeStamps: true
 })
 
-clientSchema.methods.toJSON = function(){
-    const{password, _id, ...client} = this.toObject()
-    client.cid = _id
-    return client
+userSchemaSchema.methods.toJSON = function(){
+    const{password, _id, ...user} = this.toObject()
+    user.uid = _id
+    return user
 }
 
-export default model("Client", clientSchema)
+export default model("User", userSchema)
 
