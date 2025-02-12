@@ -132,3 +132,46 @@ export const deleteUser = async (req, res) => {
     }
 }
 
+export const deleteAccount = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const { password } = req.body;
+        
+
+        const user = await User.findById(uid);
+
+
+        if (user.role !== 'CLIENT_ROLE') {
+            return res.status(403).json({
+                success: false,
+                message: "Solo los usuarios con rol CLIENT_ROLE pueden eliminar su cuenta",
+            });
+        }
+
+        const isPasswordCorrect = await verify(user.password, password);
+
+        if (!isPasswordCorrect) {
+            return res.status(401).json({
+                success: false,
+                message: "Contraseña incorrecta, no se puede proceder con la eliminación",
+            });
+        }
+
+
+        const updatedUser = await User.findByIdAndUpdate(uid, { status: false }, { new: true });
+
+        return res.status(200).json({
+            success: true,
+            message: "Cuenta desactivada correctamente",
+            user: updatedUser,
+        });
+
+    } catch (err) {
+        console.error(err); 
+        return res.status(500).json({
+            success: false,
+            message: "Error al eliminar la cuenta",
+            error: err.message,
+        });
+    }
+};
