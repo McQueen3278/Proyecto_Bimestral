@@ -33,14 +33,13 @@ const userSchema = new Schema({
     },
     nit:{
         type: String,
-        minLength: 8,
-        enum: ["C/F"],
-        default: "C/F"
+        noNit:"C/F",
+        default: "C/F",
     },
     role:{
         type: String,
         required: true,
-        enum: ["ADMIN_ROLE, CLIENT_ROLE"],
+        enum: ["ADMIN_ROLE","CLIENT_ROLE"],
         default: "CLIENT_ROLE"
     },
     status:{
@@ -53,7 +52,7 @@ const userSchema = new Schema({
     timeStamps: true
 })
 
-userSchemaSchema.methods.toJSON = function(){
+userSchema.methods.toJSON = function(){
     const{password, _id, ...user} = this.toObject()
     user.uid = _id
     return user

@@ -6,8 +6,12 @@ import helmet from "helmet"
 import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
 import { swaggerDocs, swaggerUI } from "./documentacion.js"
+import authRoutes from "../src/auth/auth.routes.js"
+import apiLimiter from "../src/middlewares/rate-limit-validator.js"
+import createAdminUser from "../src/auth/auth.controller.js"
+
 const middlewares = (app) => {
-    app.use(express.urlencoded({extended: false}))
+    app.use(express.urlencoded({ extended: true }));
     app.use(express.json())
     app.use(cors({
         origin: '*',
@@ -26,10 +30,11 @@ const middlewares = (app) => {
         },
     }));
     app.use(morgan("dev"))
-    //app.use(apiLimiter)
+    app.use(apiLimiter)
 }
 
 const routes = (app) => {
+    app.use("/supermarket/v1/auth", authRoutes)
     app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 }
 
@@ -45,6 +50,7 @@ const conectarDB = async () =>{
 export const initServer = () => {
     const app = express()
     try{
+        createAdminUser()
         middlewares(app)
         conectarDB()
         routes(app)
