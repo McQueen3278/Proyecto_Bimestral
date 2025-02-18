@@ -14,5 +14,15 @@ const productSchema = new Schema({
     price:{
         type: Number,
         required: true
-    }
+    },
+    categorie:{
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+        default: "sin_categoria"
+    },
+},{
+        timestamps: true,
+        versionKey: false
 })
+
+export default model('Product', productSchema);
