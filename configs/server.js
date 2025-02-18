@@ -10,6 +10,8 @@ import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/User/user.routes.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import createAdminUser from "../src/auth/auth.controller.js"
+import createDCategory from "../src/Category/category.controller.js"
+import categoryRoutes from "../src/Category/category.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: true }));
@@ -37,6 +39,7 @@ const middlewares = (app) => {
 const routes = (app) => {
     app.use("/supermarket/v1/auth", authRoutes)
     app.use("/supermarket/v1/user", userRoutes)
+    app.use("/supermarket/v1/category", categoryRoutes)
     app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 }
 
@@ -52,6 +55,7 @@ const conectarDB = async () =>{
 export const initServer = () => {
     const app = express()
     try{
+        createDCategory()
         createAdminUser()
         middlewares(app)
         conectarDB()

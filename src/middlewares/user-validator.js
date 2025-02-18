@@ -22,7 +22,9 @@ export const registerValidator = [
     }),
     validarCampos,
     handleErrors
+    
 ]
+
 
 export const loginValidator = [
     body("email").optional().isEmail().withMessage("No es un email válido"),
