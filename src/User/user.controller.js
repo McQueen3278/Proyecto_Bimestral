@@ -146,7 +146,7 @@ export const deleteAccount = async (req, res) => {
         }
 
         
-        const isPasswordCorrect = await argon2.verify(user.password, password); 
+        const isPasswordCorrect = await verify(user.password, password); 
 
         if (!isPasswordCorrect) {
             return res.status(401).json({
