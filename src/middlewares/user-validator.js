@@ -4,7 +4,6 @@ import { validarCampos } from "./validar-campos.js";
 import { handleErrors } from "./handle-errors.js";
 import { validateJWT } from "./validate-jwt.js";
 import { hasRoles } from "./role-validator.js";
-import User from "../User/user.model.js"
 
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
@@ -48,16 +47,12 @@ export const getUsersValidator =[
 ]
 
 export const updatePasswordValidator = [
-    param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
-    param("uid").custom(userExists),
     body("newPassword").isLength({min: 8}).withMessage("El password debe contener al menos 8 caracteres"),
     validarCampos,
     handleErrors
 ]
 
 export const updateUserValidator = [
-    param("uid", "No es un ID válido").isMongoId(),
-    param("uid").custom(userExists),
     validarCampos,
     handleErrors
 ]
@@ -70,8 +65,6 @@ export const roleValidator = (req, res, next) =>{
 export const deleteUserValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
-    param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
-    param("uid").custom(userExists),
     validarCampos,
     handleErrors
 ]
@@ -79,8 +72,6 @@ export const deleteUserValidator = [
 export const deleteAccountValidator =[
     validateJWT,
     hasRoles("CLIENT_ROLE"),
-    param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
-    param("uid").custom(userExists),
     validarCampos,
     handleErrors
 ]
