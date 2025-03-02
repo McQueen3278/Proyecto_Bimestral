@@ -56,10 +56,10 @@ export const getUsers = async (req, res) => {
 
 export const updatePassword = async (req, res) => {
     try{
-        const { uid } = req.params
+        const usuario = req.usuario;
         const { newPassword } = req.body
 
-        const user = await User.findById(uid)
+        const user = await User.findById(usuario._id)
 
         const matchOldAndNewPassword = await verify(user.password, newPassword)
 
@@ -72,7 +72,7 @@ export const updatePassword = async (req, res) => {
 
         const encryptedPassword = await hash(newPassword)
 
-        await User.findByIdAndUpdate(uid, {password: encryptedPassword}, {new: true})
+        await User.findByIdAndUpdate(usuario._id, {password: encryptedPassword}, {new: true})
 
         return res.status(200).json({
             success: true,
@@ -90,10 +90,10 @@ export const updatePassword = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        const { uid } = req.params;
+        const usuario = req.usuario;
         const  data  = req.body;
 
-        const user = await User.findByIdAndUpdate(uid, data, { new: true });
+        const user = await User.findByIdAndUpdate(usuario._id, data, { new: true });
 
         res.status(200).json({
             success: true,
@@ -132,11 +132,11 @@ export const deleteUser = async (req, res) => {
 
 export const deleteAccount = async (req, res) => {
     try {
-        const { uid } = req.params;
+        const usuario = req.usuario;
         const { password } = req.body;
 
  
-        const user = await User.findById(uid);
+        const user = await User.findById(usuario._id);
 
         if (user.role !== 'CLIENT_ROLE') {
             return res.status(403).json({
@@ -155,7 +155,7 @@ export const deleteAccount = async (req, res) => {
             });
         }
 
-        const updatedUser = await User.findByIdAndUpdate( uid,{ status: false },{ new: true });
+        const updatedUser = await User.findByIdAndUpdate( usuario._id,{ status: false },{ new: true });
 
      
         return res.status(200).json({
