@@ -132,7 +132,7 @@ export const deleteUser = async (req, res) => {
 
 export const deleteAccount = async (req, res) => {
     try {
-        const { uid } = req.params;
+        const usuario = req.usuario;
         const { password } = req.body;
 
  

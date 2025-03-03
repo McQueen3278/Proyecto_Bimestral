@@ -47,12 +47,16 @@ export const getUsersValidator =[
 ]
 
 export const updatePasswordValidator = [
+    validateJWT,
+    hasRoles("CLIENT_ROLE"),
     body("newPassword").isLength({min: 8}).withMessage("El password debe contener al menos 8 caracteres"),
     validarCampos,
     handleErrors
 ]
 
 export const updateUserValidator = [
+    validateJWT,
+    hasRoles("CLIENT_ROLE"),
     validarCampos,
     handleErrors
 ]
@@ -64,7 +68,7 @@ export const roleValidator = (req, res, next) =>{
 
 export const deleteUserValidator = [
     validateJWT,
-    hasRoles("ADMIN_ROLE"),
+    hasRoles("CLIENT_ROLE"),
     validarCampos,
     handleErrors
 ]
