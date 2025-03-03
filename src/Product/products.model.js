@@ -1,4 +1,4 @@
-import { Schema, SchemaType, model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const productSchema = new Schema({
     name:{
@@ -15,23 +15,18 @@ const productSchema = new Schema({
         type: Number,
         required: true
     },
-<<<<<<< HEAD
     category: {
         type: Schema.Types.ObjectId,
         ref: Category,
         required: false
-    }
-})
-=======
-    categorie:{
-        type: Schema.Types.ObjectId,
-        ref: 'Category',
-        default: "sin_categoria"
     },
+    status:{
+        type: Boolean,
+        default: true
+    }
 },{
         timestamps: true,
         versionKey: false
 })
 
 export default model('Product', productSchema);
->>>>>>> 244858bed00a7e879740d5eabc69dca1561fd2ae
