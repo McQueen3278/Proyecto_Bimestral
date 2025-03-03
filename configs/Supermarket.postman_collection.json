@@ -101,8 +101,6 @@
 						"url": "http://localhost:3000/supermarket/v1/user/deleteUser/67ad1fe40814cbc262e316f5"
 					},
 					"response": []
-<<<<<<< HEAD
-=======
 				},
 				{
 					"name": "Delete Account",
@@ -111,7 +109,112 @@
 						"header": []
 					},
 					"response": []
->>>>>>> 9dd4d029dd2324003761be8fa76ddbb762648237
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "add Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FjZmI5MTQyYmVlMWNjN2ZiMGUyY2EiLCJpYXQiOjE3NDEwMzgwOTMsImV4cCI6MTc0MTA0MTY5M30.MlxOQmTHSH2RVnFaGjNlI6x3u671zNkIbfENHqjgMKo"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Limpieza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/supermarket/v1/category/createCategory"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/category/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FjZmI5MTQyYmVlMWNjN2ZiMGUyY2EiLCJpYXQiOjE3NDEwMzgwOTMsImV4cCI6MTc0MTA0MTY5M30.MlxOQmTHSH2RVnFaGjNlI6x3u671zNkIbfENHqjgMKo"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Carne\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/supermarket/v1/category/updateCategory/67c6221e5f12971b19471be9"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FjZmI5MTQyYmVlMWNjN2ZiMGUyY2EiLCJpYXQiOjE3NDEwMzgwOTMsImV4cCI6MTc0MTA0MTY5M30.MlxOQmTHSH2RVnFaGjNlI6x3u671zNkIbfENHqjgMKo"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/category/deleteCategory/67c622525f12971b19471bec"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FjZmI5MTQyYmVlMWNjN2ZiMGUyY2EiLCJpYXQiOjE3NDEwNDM2MjksImV4cCI6MTc0MTA0NzIyOX0.GAclaO55djdDTY9Pe3AzvBwdtbfwFpQPpE9YTHFQKUk"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Puyzao\",\r\n    \"description\": \"Carne de alta calidad\",\r\n    \"category\": \"67c6221e5f12971b19471be9\",\r\n    \"price\": \"84.00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/supermarket/v1/product/addProduct"
+					},
+					"response": []
 				}
 			]
 		}
