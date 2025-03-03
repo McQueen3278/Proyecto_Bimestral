@@ -15,11 +15,15 @@ const productSchema = new Schema({
         type: Number,
         required: true
     },
-    categorie:{
+    category: {
         type: Schema.Types.ObjectId,
-        ref: 'Category',
-        default: "sin_categoria"
+        ref: Category,
+        required: false
     },
+    status:{
+        type: Boolean,
+        default: true
+    }
 },{
         timestamps: true,
         versionKey: false

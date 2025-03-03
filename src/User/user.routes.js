@@ -9,12 +9,12 @@ router.get("/findUser/:uid", getUserByIdValidator, getUserById)
 
 router.get("/",getUsersValidator, getUsers)
 
-router.patch("/updatePassword/:uid", updatePasswordValidator, updatePassword)
+router.patch("/updatePassword", updatePasswordValidator, updatePassword)
+  
+router.put("/updateUser", updateUserValidator, updateUser)
 
-router.put("/updateUser/:uid", updateUserValidator, updateUser)
+router.delete("/deleteUser", deleteUserValidator, deleteUser)
 
-router.delete("/deleteUser/:uid", deleteUserValidator, deleteUser)
-
-router.delete("/deleteAccount/:uid", deleteAccountValidator, deleteAccount)
+router.delete("/deleteAccount", deleteAccountValidator, deleteAccount)
 
 export default router;

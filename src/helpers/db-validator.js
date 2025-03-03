@@ -1,4 +1,5 @@
 import User from "../User/user.model.js";
+import Category from "../Category/category.model.js";
 
 export const usernameExists = async (username = "") => {
     const existe = await User.findOne({username})
@@ -18,5 +19,12 @@ export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
     if(existe){
         throw new Error(`The email ${email} is already registered`)
+    }
+}
+
+export const categoryExists = async (cid = "") => {
+    const existe = await Category.findById(cid)
+    if(!existe){
+        throw new Error("No existe la categoría con el ID proporcionado")
     }
 }
