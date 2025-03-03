@@ -76,7 +76,8 @@ export const deleteUserValidator = [
     handleErrors
 ]
 
-export const deleteAccountValidator = [
+
+export const deleteAccountValidator =[
     validateJWT,
     hasRoles("CLIENT_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),

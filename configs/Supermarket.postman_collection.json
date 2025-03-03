@@ -101,6 +101,17 @@
 						"url": "http://localhost:3000/supermarket/v1/user/deleteUser/67ad1fe40814cbc262e316f5"
 					},
 					"response": []
+<<<<<<< HEAD
+=======
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+>>>>>>> 9dd4d029dd2324003761be8fa76ddbb762648237
 				}
 			]
 		}
