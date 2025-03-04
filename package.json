@@ -1,6 +1,7 @@
 {
   "name": "proyecto_bimestral",
   "version": "1.0.0",
+  "type": "module",
   "description": "Administrador de supermercado",
   "type": "module",
   "main": "index.js",

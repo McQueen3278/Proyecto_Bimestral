@@ -15,6 +15,7 @@ router.put("/updateUser", updateUserValidator, updateUser)
 
 router.delete("/deleteUser/:uid", deleteUserValidator, deleteUser)
 
+
 router.delete("/deleteAccount", deleteAccountValidator, deleteAccount)
 
 export default router;

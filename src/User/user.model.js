@@ -49,7 +49,7 @@ const userSchema = new Schema({
 },
 {
     versionKey: false,
-    timeStamps: true
+    timeStamp: true
 })
 
 userSchema.methods.toJSON = function(){

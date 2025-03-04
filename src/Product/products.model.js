@@ -15,14 +15,22 @@ const productSchema = new Schema({
         type: Number,
         required: true
     },
-    categorie:{
+    amount: {
+        type: Number,
+        required: true
+    },
+    category: {
         type: Schema.Types.ObjectId,
         ref: 'Category',
-        default: "sin_categoria"
+        required: false
     },
+    status:{
+        type: Boolean,
+        default: true
+    }
 },{
-        timestamps: true,
-        versionKey: false
+    versionKey: false,
+    timeStamps: true
 })
 
 export default model('Product', productSchema);

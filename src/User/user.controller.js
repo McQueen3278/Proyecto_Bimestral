@@ -4,8 +4,8 @@ import User from './user.model.js';
 
 export const getUserById = async (req, res) => {
     try{
-        const { uid } = req.params;
-        const user = await User.findById(uid)
+        const usuario = req.usuario;
+        const user = await User.findById(usuario._id)
 
         if(!user){
             return res.status(404).json({
@@ -56,10 +56,10 @@ export const getUsers = async (req, res) => {
 
 export const updatePassword = async (req, res) => {
     try{
-        const usuario = req.usuario;
+        const usuario = req.usuario
         const { newPassword } = req.body
 
-        const user = await User.findById(usuario._id)
+        const user = await User.findById(usuario)
 
         const matchOldAndNewPassword = await verify(user.password, newPassword)
 
@@ -130,10 +130,15 @@ export const deleteUser = async (req, res) => {
 }
 
 
+
 export const deleteAccount = async (req, res) => {
     try {
         const usuario = req.usuario;
         const { password } = req.body;
+        
+
+
+
 
  
         const user = await User.findById(usuario._id);
@@ -145,8 +150,10 @@ export const deleteAccount = async (req, res) => {
             });
         }
 
+
         
         const isPasswordCorrect = await verify(user.password, password); 
+
 
         if (!isPasswordCorrect) {
             return res.status(401).json({
@@ -172,4 +179,4 @@ export const deleteAccount = async (req, res) => {
             error: err.message,
         });
     }
-};
+}
