@@ -10,3 +10,10 @@ export const addCartValidator = [
     validarCampos,
     handleErrors
 ]
+
+export const deleteProductToCartValidator = [
+    validateJWT,
+    hasRoles("CLIENT_ROLE"),
+    validarCampos,
+    handleErrors
+]
