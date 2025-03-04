@@ -13,6 +13,7 @@ import createAdminUser from "../src/auth/auth.controller.js"
 import productsRoutes from "../src/Product/products.routes.js"
 import createDCategory from "../src/Category/category.controller.js"
 import categoryRoutes from "../src/Category/category.routes.js"
+import cartRoutes from "../src/Cart/cart.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: true }));
@@ -42,6 +43,7 @@ const routes = (app) => {
     app.use("/supermarket/v1/user", userRoutes)
     app.use("/supermarket/v1/category", categoryRoutes)
     app.use("/supermarket/v1/product", productsRoutes)
+    app.use("/supermarket/v1/cart", cartRoutes)
     app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 }
 
