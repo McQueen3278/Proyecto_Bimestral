@@ -101,9 +101,9 @@ export const updateProduct = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
     try {
-        const {id} = req.params;
+        const { id } = req.params;
 
-        const product = await Product.findByIdAndUpdate(id,{status: false}, {new: true});
+        const product = await Product.findByIdAndDelete(id,{status: false}, {new: true});
         return res.status(200).json({
             success: true,
             message: "Producto eliminado exitosamente",
