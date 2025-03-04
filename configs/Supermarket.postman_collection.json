@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5cdb9ec5-1949-4b6e-86e5-1d734f43a296",
+		"_postman_id": "69b8684a-3b6b-46f8-a8fd-45da3801a8d7",
 		"name": "Supermarket",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "41662644"
+		"_exporter_id": "37604997"
 	},
 	"item": [
 		{
@@ -21,8 +21,18 @@
 				{
 					"name": "Login",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/supermarket/v1/auth/login"
 					},
 					"response": []
 				}
@@ -65,7 +75,8 @@
 					"name": "Update Password",
 					"request": {
 						"method": "PATCH",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -106,7 +117,8 @@
 					"name": "Delete Account",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				}
@@ -198,14 +210,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FjZmI5MTQyYmVlMWNjN2ZiMGUyY2EiLCJpYXQiOjE3NDEwNDM2MjksImV4cCI6MTc0MTA0NzIyOX0.GAclaO55djdDTY9Pe3AzvBwdtbfwFpQPpE9YTHFQKUk"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2OWNkYzFlZjlkNWVjODMxNDg1MmMiLCJpYXQiOjE3NDEwNjk1NDEsImV4cCI6MTc0MTA3MzE0MX0.YBwlk6rKXmtgv6ZE6zDdmjLVFVxB6AyZELSRF06nUO4"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Puyzao\",\r\n    \"description\": \"Carne de alta calidad\",\r\n    \"category\": \"67c6221e5f12971b19471be9\",\r\n    \"price\": \"84.00\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Rabo\",\r\n    \"description\": \"Carne de alta calidad\",\r\n    \"category\": \"67c69cfc1ef9d5ec83148534\",\r\n    \"amount\": 10,\r\n    \"price\": 150.00\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -213,6 +225,92 @@
 							}
 						},
 						"url": "http://localhost:3000/supermarket/v1/product/addProduct"
+					},
+					"response": []
+				},
+				{
+					"name": "Catalog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/product/viewCatalog"
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2OWNkYzFlZjlkNWVjODMxNDg1MmMiLCJpYXQiOjE3NDEwNjk1NDEsImV4cCI6MTc0MTA3MzE0MX0.YBwlk6rKXmtgv6ZE6zDdmjLVFVxB6AyZELSRF06nUO4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/product/getProductById/67c6a24c1ec9c103f3c3b816"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2OWNkYzFlZjlkNWVjODMxNDg1MmMiLCJpYXQiOjE3NDEwNjk1NDEsImV4cCI6MTc0MTA3MzE0MX0.YBwlk6rKXmtgv6ZE6zDdmjLVFVxB6AyZELSRF06nUO4"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 150\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/supermarket/v1/product/updateProduct/67c69e7ab54a4670cd792d6d"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/product/deleteProduct/67c69e7ab54a4670cd792d6d"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add to Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YmRiODAzMmE2MzgzMzBkNGEyNDYiLCJpYXQiOjE3NDEwNzc5NzIsImV4cCI6MTc0MTA4MTU3Mn0.zvibcuA8K19EP6wl3qS-ekCUiDEOJ-JCJ2TxGut6hVE"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"67c6bdb8032a638330d4a246\",\r\n    \"productId\": \"67c69da36788bafba8010c88\",\r\n    \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/supermarket/v1/cart/cart"
 					},
 					"response": []
 				}
