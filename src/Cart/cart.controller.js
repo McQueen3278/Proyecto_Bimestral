@@ -3,7 +3,8 @@ import Product from "../Product/products.model.js"
 
 export const addToCart = async (req, res) => {
     try {
-        const { usuarioId, productId, quantity } = req.body;
+        const { productId, quantity } = req.body;
+        const usuario = req.usuario;
 
         const product = await Product.findById(productId);
         if (!product) {
@@ -13,9 +14,9 @@ export const addToCart = async (req, res) => {
             });
         }
 
-        let cart = await Cart.findOne({ user: usuarioId, status: 'active' });
+        let cart = await Cart.findOne({ user: usuario._id, status: 'active' });
         if (!cart) {
-            cart = new Cart({ user: usuarioId, products: [] });
+            cart = new Cart({ user: usuario._id, products: [] });
         }
 
         const productIndex = cart.products.findIndex(item => item.product.toString() === productId);
@@ -24,6 +25,7 @@ export const addToCart = async (req, res) => {
         } else {
             cart.products.push({ product: productId, quantity });
         }
+
 
         await cart.save();
 

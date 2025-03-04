@@ -10,7 +10,6 @@ export const addProductValidator =[
     hasRoles("ADMIN_ROLE"),
     body("name").notEmpty().withMessage("El nombre es requerido"),
     body("price").notEmpty().withMessage("El precio es requerido"),
-    param("id").custom(productExists),
     validarCampos,
     handleErrors
 ]
