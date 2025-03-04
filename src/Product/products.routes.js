@@ -12,6 +12,6 @@ router.get("/getProductById/:id", getProductByIdValidator, getProductById)
 
 router.put("/updateProduct/:id", updateProductValidator, updateProduct)
 
-router.delete("/deleteProduct/:id", deleteProductValidator, deleteProduct)
+router.delete("/deleteProduct/:id", deleteProductValidator)
 
 export default router;
