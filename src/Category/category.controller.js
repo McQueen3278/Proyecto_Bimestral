@@ -1,4 +1,5 @@
 import Category from "./category.model.js";
+import Product from "../Product/products.model.js"
 
 const createDCategory = async () => {
     try {
@@ -102,8 +103,22 @@ export const updateCategory = async (req, res) => {
         const { cid } = req.params;
 
 
-  
         const categorie = await Category.findByIdAndUpdate(cid,{ status: false },{ new: true });
+
+
+        const sinCategoria = await Category.findOne({ name: "sin_categoria" });
+
+      if (!sinCategoria) {
+          return res.status(404).json({
+              success: false,
+              message: "La categoría 'sin_categoria' no existe",
+          });
+      }
+
+      const result = await Product.updateMany(
+        {category: cid},
+        {category: sinCategoria._id}
+      );
 
 
         return res.status(200).json({

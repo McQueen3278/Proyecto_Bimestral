@@ -3,9 +3,9 @@ import Category from "../Category/category.model.js"
 
 export const addProduct = async (req, res) => {
     try {
-        const { name, description, category, amount, price } = req.body;
-
-
+        const data = req.body;
+        const category = req.body;
+        
         if (!category) {
             return res.status(400).json({
                 success: false,
@@ -13,12 +13,19 @@ export const addProduct = async (req, res) => {
             });
         }
 
+        if(!data.category){
+            const sinCategoria = await Category.findOne({ name: "sin_categoria" });
+            if(!sinCategoria){
+                return res.status(400).json({
+                    success: false,
+                    message: "La categoria 'sin_categoria' no existe"
+                })
+            }
+            data.category = sinCategoria._id;
+        }
+
         const product = new Product({
-            name,
-            description,
-            category,
-            amount,
-            price
+            ...data,
         });
 
         await product.save();
