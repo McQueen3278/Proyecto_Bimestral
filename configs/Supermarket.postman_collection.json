@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "bce81a2d-d070-42c2-8de9-573bfe59f2a8",
+		"_postman_id": "5750d164-0ed7-4de4-91bf-89cf9696cb5a",
 		"name": "Supermarket",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "41662644"
+		"_exporter_id": "37604997"
 	},
 	"item": [
 		{
@@ -14,7 +14,16 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:3000/supermarket/v1/auth"
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\",\r\n    \"surname\": \"\",\r\n    \"username\": \"\",\r\n    \"password\": \"\",\r\n    \"email\": \"\",\r\n    \"nit\": \"\",\r\n    \"phone\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/supermarket/v1/auth/register"
 					},
 					"response": []
 				},
@@ -25,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"Harol\",\r\n    \"password\": \"Harol_Rodrigue$3278\"\r\n}",
+							"raw": "{\r\n    \"username\": \"hrodriguez\",\r\n    \"password\": \"Harol_Rodrigue$3278\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -302,6 +311,55 @@
 						"url": "http://localhost:3000/supermarket/v1/product/deleteProduct/67c69e7ab54a4670cd792d6d"
 					},
 					"response": []
+				},
+				{
+					"name": "Most Sold",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/product/mostSold"
+					},
+					"response": []
+				},
+				{
+					"name": "find by name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/supermarket/v1/product/getByName?name=Puyazo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"supermarket",
+								"v1",
+								"product",
+								"getByName"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Puyazo"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -314,14 +372,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Njc2NzIyZjRlNDMwODk2YjI0ODMiLCJpYXQiOjE3NDExMjE0NjAsImV4cCI6MTc0MTEyNTA2MH0.4OTCWf0mDRYp69M-_NEeNfNua1UInM8Kbnui4koODsI"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YmRiODAzMmE2MzgzMzBkNGEyNDYiLCJpYXQiOjE3NDExNTM1NTMsImV4cCI6MTc0MTE1NzE1M30.2bFeuNlaRXrPdOQakDexSYVZ6IhUIF-oK_5IXHQwrZU"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"productId\": \"67c76e37ffb872e1f822d4ef\",\r\n    \"quantity\": 2\r\n}",
+							"raw": "{\r\n    \"productId\": \"67c69ec02b618fa8a8ebd7ba\",\r\n    \"quantity\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -338,14 +396,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Njc2NzIyZjRlNDMwODk2YjI0ODMiLCJpYXQiOjE3NDExMjk3OTMsImV4cCI6MTc0MTEzMzM5M30.uY_fRaLz_cquEu0GDwveWVwnjubOEap1EH79UtIiG5M"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YmRiODAzMmE2MzgzMzBkNGEyNDYiLCJpYXQiOjE3NDExNTM1NTMsImV4cCI6MTc0MTE1NzE1M30.2bFeuNlaRXrPdOQakDexSYVZ6IhUIF-oK_5IXHQwrZU"
 							}
 						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"productId\": \"67c76e37ffb872e1f822d4ef\",\r\n    \"quantity\": 1\r\n}",
+							"raw": "{\r\n    \"productId\": \"67c69ec02b618fa8a8ebd7ba\",\r\n    \"quantity\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -353,6 +411,56 @@
 							}
 						},
 						"url": "http://localhost:3000/supermarket/v1/cart/deleteProductC"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YmRiODAzMmE2MzgzMzBkNGEyNDYiLCJpYXQiOjE3NDExNTM1NTMsImV4cCI6MTc0MTE1NzE1M30.2bFeuNlaRXrPdOQakDexSYVZ6IhUIF-oK_5IXHQwrZU"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/cart/getCart"
+					},
+					"response": []
+				},
+				{
+					"name": "Buy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YmRiODAzMmE2MzgzMzBkNGEyNDYiLCJpYXQiOjE3NDExNTM1NTMsImV4cCI6MTc0MTE1NzE1M30.2bFeuNlaRXrPdOQakDexSYVZ6IhUIF-oK_5IXHQwrZU"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/cart/checkout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "get History Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YmRiODAzMmE2MzgzMzBkNGEyNDYiLCJpYXQiOjE3NDExNTM1NTMsImV4cCI6MTc0MTE1NzE1M30.2bFeuNlaRXrPdOQakDexSYVZ6IhUIF-oK_5IXHQwrZU"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/supermarket/v1/order/getHistory"
 					},
 					"response": []
 				}
