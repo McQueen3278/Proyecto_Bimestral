@@ -17,3 +17,8 @@ export const deleteProductToCartValidator = [
     validarCampos,
     handleErrors
 ]
+
+export const getCartValidator = [
+    validateJWT,
+    hasRoles("CLIENT_ROLE")
+]

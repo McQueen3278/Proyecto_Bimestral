@@ -29,10 +29,12 @@ export const addToCart = async (req, res) => {
 
         await cart.save();
 
+        const modifyCart = await Cart.findById(cart._id).populate("products.product", "name");
+
         return res.status(200).json({
             success: true,
             message: "Producto agregado al carrito exitosamente.",
-            cart
+            modifyCart
         });
     } catch (err) {
         return res.status(500).json({
@@ -82,10 +84,13 @@ export const removeFromCart = async (req, res) => {
 
         await cart.save();
 
+        const modifyCart = await Cart.findById(cart._id).populate("products.product", "name");
+
+
         return res.status(200).json({
             success: true,
             message: "Producto actualizado en el carrito exitosamente.",
-            cart
+            modifyCart
         });
     } catch (err) {
         return res.status(500).json({
@@ -95,4 +100,28 @@ export const removeFromCart = async (req, res) => {
         });
     }
 };
+
+export const getCart = async (req, res) => {
+    try {
+        const usuario = req.usuario;
+
+        const cart = await Cart.findOne({ user: usuario._id, status: 'active' }).populate("products.product", "name price");
+
+
+        return res.status(200).json({
+            success: true,
+            message: "Carrito obtenido exitosamente.",
+            cart
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Hubo un error al obtener el carrito.",
+            error: err.message
+        });
+    }
+};
+
+
 
