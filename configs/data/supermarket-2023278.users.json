@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "67c69cdc1ef9d5ec8314852c"
+  },
+  "name": "Admin",
+  "surname": "Supermarket",
+  "username": "admin",
+  "email": "admin@supermarket.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$Rd1VtY8SeQ/9gz9l/6o7uA$qyB+6aDzqkmIwB3IjQDBAnWg+CD/6Uhi2flt7rZnamU",
+  "phone": "12345678",
+  "nit": "",
+  "role": "ADMIN_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c6bdb8032a638330d4a246"
+  },
+  "name": "Harol",
+  "surname": "Rodriguez",
+  "username": "hrodriguez",
+  "email": "hrodriguez.2023278@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$8rfRLHnZPrDnyCQ97GBamQ$RMzGK90BzQMsf4paDM9tI/Ygc/bkbCEfR1bRldLBHyA",
+  "phone": "41812768",
+  "nit": "C/F",
+  "role": "CLIENT_ROLE",
+  "status": true
+}]

@@ -1,0 +1,58 @@
+[{
+  "_id": {
+    "$oid": "67c69da36788bafba8010c88"
+  },
+  "name": "Puyazo",
+  "description": "Carne de alta calidad",
+  "price": 84,
+  "category": {
+    "$oid": "67c69cfc1ef9d5ec83148534"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-04T06:28:51.214Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T06:28:51.214Z"
+  },
+  "amount": 15
+},
+{
+  "_id": {
+    "$oid": "67c69ec02b618fa8a8ebd7ba"
+  },
+  "name": "Arrachera",
+  "description": "Carne de alta calidad",
+  "price": 194,
+  "category": {
+    "$oid": "67c69cfc1ef9d5ec83148534"
+  },
+  "status": true,
+  "amount": 9
+},
+{
+  "_id": {
+    "$oid": "67c69f60e89746807443d73c"
+  },
+  "name": "Arrachera",
+  "description": "Carne de alta calidad",
+  "price": 194,
+  "amount": 8,
+  "category": {
+    "$oid": "67c69cfc1ef9d5ec83148534"
+  },
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c6a24c1ec9c103f3c3b816"
+  },
+  "name": "Rabo",
+  "description": "Carne de alta calidad",
+  "price": 150,
+  "amount": 24,
+  "category": {
+    "$oid": "67c69cfc1ef9d5ec83148534"
+  },
+  "status": true
+}]

@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "67c69cdc1ef9d5ec83148528"
+  },
+  "name": "sin_categoria",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c69cf41ef9d5ec83148531"
+  },
+  "name": "Limpieza",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c69cfc1ef9d5ec83148534"
+  },
+  "name": "Carnes",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c69d051ef9d5ec83148537"
+  },
+  "name": "Embutidos",
+  "status": true
+}]
